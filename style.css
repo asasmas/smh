@@ -1,0 +1,262 @@
+/* الألوان */
+:root {
+  --dark-green: #3e5226;
+  --olive-green: #606c38;
+  --beige: #f8ea8f;
+  --golden: #dda15e;
+  --brown: #bc6c25;
+}
+
+/* تهيئة عامة */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--beige);
+  color: var(--dark-green);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* الهيدر */
+header {
+  background-color: var(--dark-green);
+  color: var(--beige);
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-image {
+  width: 80px;
+  height: 80px;
+  /* border-radius: 50%; */ /* تم التعليق أو الإزالة */
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-image:hover {
+  transform: scale(1.1);
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--beige);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav .nav-links li {
+  display: inline;
+}
+
+nav .nav-links a {
+  text-decoration: none;
+  color: var(--beige);
+  font-weight: bold;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease-in-out;
+}
+
+nav .nav-links a:hover {
+  color: var(--golden);
+}
+
+nav .nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--golden);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+nav .nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* زر القائمة (للجوال) */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: var(--beige);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background-color: var(--dark-green);
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  nav .nav-links li {
+    margin: 1rem 0;
+  }
+}
+
+/* قسم من نحن */
+#about {
+  padding: 50px;
+  background-color: var(--beige);
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+  text-align: right;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark-green);
+}
+
+.about-text p {
+  color: var(--olive-green);
+}
+
+.about-image-img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* قسم خدماتنا */
+#services {
+  padding: 50px 0;
+}
+
+.slider-container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+  flex: 1;
+  text-align: center;
+}
+
+.slider-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.slider-item p {
+  color: var(--olive-green);
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* قسم تواصل معنا */
+/* تنسيق الأيقونات */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 20px;
+}
+
+.contact-icon {
+  font-size: 2rem;
+  color: var(--dark-green);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.contact-icon:hover {
+  color: var(--golden);
+}
+
+.contact-icon i {
+  font-size: 3rem; /* حجم الأيقونة */
+}
+
+/* الفوتر */
+footer {
+  background-color: var(--dark-green);
+  color: var(--beige);
+  padding: 1rem;
+}
